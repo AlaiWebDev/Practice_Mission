@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>Bienvenue chez ABI</title>
+</head>
+
+<body>
+    <header>
+        <a href="./index.html"><img src="./img/abi-solutions-logo.png"></a>
+        <div class="navbar">
+            <nav>
+                <a href="#" ; onclick="displayConnect(false)">Accueil</a>
+                <a href=javascript:void(0); onclick="displayConnect(true)">Intranet</a>
+                <a href="#">Contact</a>
+                <a href="#">Aide</a>
+            </nav>
+            <form method="GET" class="connect" id="idconnection">
+                <label for="ident">&nbsp;Identifiant</label>
+                <input type="text" name="ident" id="ident" required>
+                <label for="pwd">&nbsp;Mot de passe</label>
+                <input type="password" name="pwd" id="pwd" required>
+                <input type="submit" id="btn" onclick="displayConnect(false);checkID(); return false;"
+                    value="Connexion">
+            </form>
+        </div>
+    </header>
+    <h1>Bienvenue chez ABI Solutions</h1>
+    <main>
+        <img src="./media/map_abi.jpg">
+        <div class="introducing">
+            <h2>La Société</h2>
+            <p>
+                Créé par une équipe de techniciens spécialisés dans le réseau
+                et les systèmes informatiques, A.B.I. vous offre une compétence
+                et une connaissance technique vous permettant d'aborder en toute
+                sécurité vos projets informatiques et multimédias. A destination des entreprises du secteur agronomique.
+                Nous vous accompagnons sur vos problématiques de mises en place du début
+                jusqu'à la fin mais aussi dans le temps pour la gestion de votre maintenance.
+            </p>
+            <p>Alain ORLUK<br>CEO</p>
+            <hr>
+            <p>ABI Informatique<br>
+                <p>
+                    07 69 55 20 43<br>
+                    115 rue sainte-cécile<br>
+                    13005 Marseille<br>
+                </p>
+                <p>Nos horaires<br>
+                    Lundi 9h00 - 19h00<br>
+                    Mardi 9h00 - 19h00<br>
+                    Mercredi 9h00 - 19h00<br>
+                    Jeudi 9h00 - 19h00<br>
+                    Vendredi 9h00 - 19h00<br>
+                    Samedi 9h00 - 19h00<br>
+                </p>
+            </p>
+        </div>
+    </main>
+    <footer>
+        <article id="copyright">
+            &copy;LAMA pour ABI - 2020 - Tous droits réservés
+        </article>
+    </footer>
+    <script>
+        function checkID() {
+            strIdent = document.getElementById('ident').value;
+            strPwd = document.getElementById('pwd').value;
+            window.location.href = "index_com.html";
+        }
+
+        function displayConnect(visible = true) {
+            let wdwConnect;
+            wdwConnect = document.getElementById("idconnection");
+            if (visible == true) {
+                wdwConnect.classList.add("show");
+            } else {
+                wdwConnect.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+
+</html>
