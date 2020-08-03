@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>ABI - GestCom</title>
+    <!--Numéro de client,
+Raison sociale du client,
+Type client (public, privé),
+Domaine d'activité (agro, industrie, ...),
+Adresse du client,
+Téléphone,
+Nature (principale, secondaire, ancienne)
+Chiffre d'affaires,
+Effectifs,
+Contacts client sur les projets avec leurs coordonnées
+Commentaires commerciaux-->
+
+</head>
+
+<body onload="listClients('10')">
+    <header>
+        <a href="./index.html"><img src="./img/abi-solutions-logo.png"></a>
+
+        <div class="navbar">
+            <nav>
+                <a href="./index.html" ; onclick="displayConnect(false)">Accueil</a>
+                <a href=javascript:void(0); onclick="displayConnect(true)">Déconnexion</a>
+                <a href="#">Contact</a>
+                <a href="#">Aide</a>
+            </nav>
+            <form method="GET" class="connect" id="idconnection">
+                <label for="ident">&nbsp;Identifiant</label>
+                <input type="text" name="ident" id="ident" required>
+                <label for="pwd">&nbsp;Mot de passe</label>
+                <input type="password" name="pwd" id="pwd" required>
+                <input type="submit" id="btn" onclick="checkID(); return false;" value="Connexion">
+            </form>
+        </div>
+    </header>
+    <h1>Liste des clients</h1>
+    <main>
+
+        <fieldset id="gestcom">
+            <legend>Menu</legend>
+            <a href=javascript:void(0); onclick="listFunction(); return false;">Liste des clients</a>
+            <a href="./ajout_client.html">Nouveau client</a>
+            <a href="./liste_contacts.html">Liste des contacts</a>
+        </fieldset>
+        <form class="form-main" method="POST">
+            <div id="toc"></div>
+            <div class="opt-btn">
+                <a href="#">&#9664;&nbsp;Prec</a>
+                <select name="client-by-page" id="client-by-page">
+                    <option value="11">10</option>
+                    <option value="21">20</option>
+                    <option value="41">40</option>
+                </select>
+                <a href="#">Suiv&nbsp;&#9654;</a>
+            </div>
+            <div class="search">
+                <input type="text" name="search-text" id="search-text" required>
+                <label for="search-crit">&nbsp;<strong>Rercherche par</strong>&nbsp;</label>
+                <a href="#"><select name="search-crit" id="search-crit">
+                        <option value="">ID</option>
+                        <option value="RS">Raison Sociale</option>
+                        <option value="Ville">Ville</option>
+                        <option value="Activité">Activité</option>
+                    </select></a>
+
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <article id="copyright">
+            &copy;LAMA pour ABI - 2020 - Tous droits réservés
+        </article>
+    </footer>
+    <script>
+        function listClients(nbLines) {
+            var e = document.getElementById("client-by-page");
+            nbLines = e.options[e.selectedIndex].value;
+            until = 5
+            let table = 1;
+            let res = "";
+            var id = 0;
+            var clientid = 0;
+            res = "<span><table id = 'listeClient'>";
+            for (let table = 1; table <= nbLines; table++) {
+
+                if (table == 1) {
+                    res += "<tr>\n<th>&nbsp;";
+                } else {
+                    res += "<tr>\n<th id='IDclient" + (table - 1) + "'>ID" + (table - 1) + " ";
+                }
+                id += 1;
+                for (let i = 1; i <= until; i++) {
+                    if (table == 1) {
+                        res += '<th>' + "Data" + id + ' </th>';
+                        id += 1;
+                    } else {
+                        res = res + '<td>' + "DONNEE" + i + " </td>";
+                    }
+                }
+                res += "</th></tr>\n";
+
+            }
+            res += '</table>';
+            document.getElementById("toc").innerHTML = res;
+            document.getElementById('listeClient').addEventListener("dblclick", detailClient);
+        }
+
+        function detailClient(e) {
+            TableClient = document.getElementById('listeClient');
+            NameFields = TableClient.rows[0].textContent;
+            NameFields = NameFields.split(" ");
+            NameFields = NameFields.join();
+            if ((e.srcElement.id).indexOf("IDclient") !== -1) {
+                let IDSelected = e.srcElement.id;
+                clientSelected = e.path[1].textContent;
+                let pos = clientSelected.indexOf(' ');
+                clientDatas = clientSelected.substr((pos + 1), clientSelected.length - 1);
+                let array = clientDatas.split(" ");
+                clientDatas = array.join();
+                window.confirm("Client : " + IDSelected + "\nVoici les informations complètes  : \n" + clientDatas +
+                    "\nVoulez-vous modifier ce client ?");
+            }
+        }
+        document.getElementById('client-by-page').addEventListener("change", listClients);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>ABI - GestCom</title>
+    <!--Numéro de client,
+Raison sociale du client,
+Type client (public, privé),
+Domaine d'activité (agro, industrie, ...),
+Adresse du client,
+Téléphone,
+Nature (principale, secondaire, ancienne)
+Chiffre d'affaires,
+Effectifs,
+Contacts client sur les projets avec leurs coordonnées
+Commentaires commerciaux-->
+
+</head>
+
+<body>
+    <header>
+        <a href="./index.html"><img src="./img/abi-solutions-logo.png"></a>
+        <div class="navbar">
+            <nav>
+                <a href="./index.html" ; onclick="displayConnect(false)">Accueil</a>
+                <a href=javascript:void(0); onclick="displayConnect(true)">Déconnexion</a>
+                <a href="#">Contact</a>
+                <a href="#">Aide</a>
+            </nav>
+            <form method="GET" class="connect" id="idconnection">
+                <label for="ident">&nbsp;Identifiant</label>
+                <input type="text" name="ident" id="ident" required>
+                <label for="pwd">&nbsp;Mot de passe</label>
+                <input type="password" name="pwd" id="pwd" required>
+                <input type="submit" id="btn" onclick="checkID(); return false;" value="Connexion">
+            </form>
+        </div>
+    </header>
+    <h1>Liste des contacts</h1>
+    <main>
+
+        <fieldset id="gestcom">
+            <legend>Menu</legend>
+            <a href="./liste_clients.html">Liste des clients</a>
+            <a href="./ajout_client.html">Nouveau client</a>
+            <a href=javascript:void(0); onclick="document.getElementById('toc').innerHTML = '';">Liste des contacts</a>
+        </fieldset>
+        <fieldset class="list-contact">
+            <legend>Sélectionner un contact</legend>
+            <select name="contact-select" class="contact-select" id="ctc-select">
+                <option value="">CONTACT</option>
+                <option value="ctc1">David Andritch</option>
+                <option value="ctc2">Julie Ricord</option>
+                <option value="ctc3">Mohammed Mokrani</option>
+                <option value="ctc4">Etienne Galand</option>
+            </select>
+            <div class="info-contact">
+                <fieldset>
+                    <legend>Nom</legend>
+                    <input class="input" type="text" name="Lastname" id="ctc-lastname" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>Prénom</legend>
+                    <input class="input" type="text" name="Firstname" id="ctc-firstname" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>Téléphone</legend>
+                    <input class="input" type="tel" name="Phone" id="ctc-phone" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>E-mail</legend>
+                    <input class="input" type="email" name="Mail" id="ctc-mail" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>Clients</legend>
+                    <select name="contact-select" class="client-select">
+                        <option value=""></option>
+                        <option value="cli1">Client1</option>
+                        <option value="cli2">Client2</option>
+                        <option value="cli3">Client3</option>
+                        <option value="cli4">Client4</option>
+                    </select>
+                </fieldset>
+                <a href="#" id="create-contact" onclick="enableContact()">Ajouter un contact</a>
+            </div>
+        </fieldset>
+
+    </main>
+    <footer>
+        <article id="copyright">
+            &copy;LAMA pour ABI - 2020 - Tous droits réservés
+        </article>
+    </footer>
+    <script>
+        function enableContact() {
+            document.getElementById('create-contact').textContent = "Valider";
+            document.getElementById('ctc-select').disabled = true;
+            const elementsList = document.querySelectorAll(
+                "#ctc-lastname, #ctc-firstname, #ctc-phone, #ctc-mail, #ctc-client");
+            for (var i = 0; i < elementsList.length; i++) {
+                elementsList[i].removeAttribute("disabled");
+            }
+        }
+    </script>
+</body>
+
+</html>

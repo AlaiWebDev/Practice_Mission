@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>ABI - GestCom</title>
+    <!--Numéro de client,
+Raison sociale du client,
+Type client (public, privé),
+Domaine d'activité (agro, industrie, ...),
+Adresse du client,
+Téléphone,
+Nature (principale, secondaire, ancienne)
+Chiffre d'affaires,
+Effectifs,
+Contacts client sur les projets avec leurs coordonnées
+Commentaires commerciaux-->
+
+</head>
+
+<body>
+
+    <header>
+        <!--<a href="index.html">--><a href="./index.html"><img src="./img/abi-solutions-logo.png"></a>
+        <!--</a>-->
+        <div class="navbar">
+            <nav>
+                <a href="./index.html">Accueil</a>
+                <a id = "intranet" href="./index.html">Déconnexion</a>
+                <a href="#">Contact</a>
+                <a href="#">Aide</a>
+            </nav>
+            <form method="GET" class="connect" id="idconnection">
+                <label for="ident">&nbsp;Identifiant</label>
+                <input type="text" name="ident" id="ident" required> <!-- HTML5 ? -->
+                <label for="pwd">&nbsp;Mot de passe</label>
+                <input type="password" name="pwd" id="pwd" required> <!-- HTML5 ? -->
+                <input type="submit" id="btn" onclick="checkID(); return false;" value="Connexion">
+            </form>
+        </div>
+    </header>
+    <h1>Gestion Commerciale</h1>
+    <main>
+
+        <fieldset id="gestcom">
+            <legend>Menu</legend>
+            <a href="./liste_clients.html">Liste des clients</a>
+            <a href="./ajout_client.html">Nouveau client</a>
+            <a href="./liste_contacts.html">Liste des contacts</a>
+        </fieldset>
+    </main>
+    <form method="POST">
+        <div id="toc"></div>
+    </form>
+    <footer>
+        <article id="copyright">
+            &copy;LAMA pour ABI - 2020 - Tous droits réservés
+        </article>
+    </footer>
+</body>
+
+</html>

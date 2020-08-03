@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>ABI - GestCom</title>
+    <!--Numéro de client,
+Raison sociale du client,
+Type client (public, privé),
+Domaine d'activité (agro, industrie, ...),
+Adresse du client,
+Téléphone,
+Nature (principale, secondaire, ancienne)
+Chiffre d'affaires,
+Effectifs,
+Contacts client sur les projets avec leurs coordonnées
+Commentaires commerciaux-->
+
+</head>
+
+<body>
+    <header>
+        <!--<a href="index.html">--><a href="./index.html"><img src="./img/abi-solutions-logo.png"></a>
+        <!--</a>-->
+        <div class="navbar">
+            <nav>
+                <a href="./index.html" ; onclick="displayConnect(false)">Accueil</a>
+                <a href=javascript:void(0); onclick="displayConnect(true)">Déconnexion</a>
+                <a href="#">Contact</a>
+                <a href="#">Aide</a>
+            </nav>
+            <form method="GET" class="connect" id="idconnection">
+                <label for="ident">&nbsp;Identifiant</label>
+                <input type="text" name="ident" id="ident" required> <!-- HTML5 ? -->
+                <label for="pwd">&nbsp;Mot de passe</label>
+                <input type="password" name="pwd" id="pwd" required> <!-- HTML5 ? -->
+                <input type="submit" id="btn" onclick="checkID(); return false;" value="Connexion">
+            </form>
+        </div>
+    </header>
+    <h1>Création d'un client</h1>
+    <main>
+
+        <fieldset id="gestcom">
+            <legend>Menu</legend>
+            <a href="./liste_clients.html">Liste des clients</a>
+            <a href=javascript:void(0); onclick="document.getElementById('toc').innerHTML = '';">Nouveau client</a>
+            <a href="./liste_contacts.html">Liste des contacts</a>
+        </fieldset>
+        <fieldset id="new-client">
+            <legend>Nouveau client</legend>
+            <form method="GET" class="formulaire">
+                <fieldset>
+                    <legend>Raison sociale</legend>
+                    <input class="input" type="text" name="rs" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Type</legend>
+                    <!--<input class="input" type="text" name="type" required>-->
+                    <select class="input" name="search-type" id="search-type">
+                        <option value=""></option>
+                        <option value="typ1">Publique</option>
+                        <option value="typ2">Privé</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Secteur d'activité</legend>
+                    <input class="input" type="text" name="activity">
+                </fieldset>
+                <fieldset>
+                    <legend>Nature</legend>
+                    <select class="input" name="search-type" id="search-type">
+                        <option value=""></option>
+                        <option value="nat1">Principal</option>
+                        <option value="nat2">Secondaire</option>
+                        <option value="nat3">Ancien</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Effectifs</legend>
+                    <input type="radio" value ="1" name="search-manpower" id="search-manpower1">
+                    <label for="search-manpower1">Inférieur à 50</label>
+                    <br>
+                    <input type="radio" value ="2" name="search-manpower" id="search-manpower2">
+                    <label for="search-manpower2">Inférieur à 100</label><br>
+                    <input type="radio" value ="3" name="search-manpower" id="search-manpower3">
+                    <label for="search-manpower1">Supérieur à 100</label>
+                    <!--<input class="input" type="text" name="manpower">-->
+                </fieldset>
+                <fieldset>
+                    <legend>Adresse</legend>
+                    <textarea id="adress" name="address"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>CA</legend>
+                    <input class="input" type="text" name="ca">
+                </fieldset>
+                
+                <fieldset id="fieldset-contacts">
+                    <legend>Contacts</legend>
+                    <label for="search-contact">&nbsp;<strong> Affecter Contact(s)</strong>&nbsp;</label>
+                    <select multiple size="5" name="search-contact" id="search-contact">
+                    <option value="ctc1">David Andritch</option>
+                    <option value="ctc2">Julie Ricord</option>
+                    <option value="ctc3">Mohammed Mokrani</option>
+                    <option value="ctc4">Etinne Galand</option>
+                    </select>
+                    <input class="input" type="text" name="contact" placeholder="ajouter contact">
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Notes</legend>
+                    <textarea id="notes" name="notes" spellcheck="true"></textarea>
+                </fieldset>
+            </form>
+            <div class="create-cancel"><input type="submit" id="btn" onclick="checkID(); return false;" value="Valider">
+                <input type="submit" id="btn" onclick="checkID(); return false;" value="Annuler">
+            </div>
+        </fieldset>
+    </main>
+    <footer>
+        <article id="copyright">
+            &copy;LAMA pour ABI - 2020 - Tous droits réservés
+        </article>
+    </footer>
+</body>
+
+</html>
