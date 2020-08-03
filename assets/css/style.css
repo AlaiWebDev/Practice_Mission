@@ -1,0 +1,460 @@
+/**********************************COMMON***********************************/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /*border:1px solid red;*/
+}
+
+/**********************************LAYOUTS***********************************/
+/**/
+html {
+    color: rgb(16, 44, 128);
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background: linear-gradient(.3turn, rgb(6, 86, 236), 30%, rgb(127, 189, 247));
+}
+
+/************HEADER************/
+header {
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(37, 152, 247), 0 0 0.2em blue;
+    display: flex;
+    height: 20%;
+    justify-content: space-between;
+    margin: 10px;
+    /* Indication de couleur : un dégradé de gauche à droite
+    qui commmence en bleu clair et dont la couleur intermédiaire
+    est située à 50% et laisse les 50% pour la seconde
+    moitié de la transition vers le bleu plus foncé*/
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+    border-radius: 10px;
+    border: rgb(122, 192, 248);
+    border-style: solid;
+}
+
+header a {
+    width: 200px;
+}
+
+header img {
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+label {
+    align-self: center;
+}
+
+/*************MAIN*************/
+main {
+    display: flex;
+    flex: 0.9 1 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-image: url(../img/visiteur-commercial.png);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(122, 192, 248);
+    padding: 32px;
+    text-align: justify;
+    margin: 10px;
+    color: white;
+}
+
+.form-main {
+    width: 100%;
+}
+
+/************FOOTER************/
+footer {
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    border-color: rgb(122, 192, 248);
+    border-style: solid;
+    border-radius: 10px;
+    bottom: 0;
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+
+}
+
+article {
+    color: white;
+    margin: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+
+}
+
+/**********************************MODULES***********************************/
+/**/
+/********Barre de navigation********/
+.navbar {
+    display: flex;
+    flex-flow: column;
+    margin: 20px;
+    justify-content: flex-end;
+
+}
+
+.navbar a {
+    margin-bottom: 20px;
+    background-color: rgb(122, 192, 248);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgb(32, 32, 151);
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    width: 130px;
+    text-align: center;
+    font-size: large;
+
+}
+
+.navbar a:hover {
+
+    color: rgb(122, 192, 248);
+    background-color: rgb(32, 32, 151);
+}
+
+nav {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+/********Connexion Intranet********/
+.connect {
+    position: relative;
+    left: -5%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(122, 192, 248);
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+}
+
+#idconnection {
+    visibility: hidden;
+}
+
+#idconnection.show {
+    visibility: visible;
+}
+
+#ident,
+#pwd {
+    font-size: large;
+    height: 35px;
+}
+
+/********Présentation entreprise********/
+main img {
+    width: auto;
+    height: auto;
+}
+
+.introducing {
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(37, 152, 247), 0 0 0.2em blue;
+    color: white;
+    font-size: large;
+    background-color: rgba(175, 171, 171, 0.5);
+}
+
+.introducing h2 {
+    margin: 30px;
+    text-align: center;
+}
+
+.introducing p {
+    margin: 10px;
+    padding: 20px;
+}
+
+input {
+    margin: 5px;
+    border-radius: 5px;
+    color: rgb(16, 44, 128)
+}
+
+/*****************************GestCom*************************/
+h1 {
+    color: white;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    text-align: center;
+}
+
+#gestcom {
+    border-radius: 5px;
+    border-style: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-width: 300px;
+    height: fit-content;
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+    color: white;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    box-shadow: 4px 4px 5px rgb(244, 244, 247);
+}
+
+#gestcom a {
+    border-radius: 5px;
+    color: white;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    text-decoration: none;
+    margin: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: larger;
+}
+
+#gestcom a:hover {
+    color: rgb(122, 192, 248);
+    background-color: rgb(32, 32, 151);
+}
+
+#gestcom>legend {
+    font-size: xx-large;
+}
+
+/*********Liste Clients*********/
+table,
+th,
+td {
+    width: 80;
+    margin: auto;
+    border: 1px solid black;
+    background-color: rgb(122, 192, 248);
+    text-align: center;
+    font-size: larger;
+    border-collapse: collapse;
+}
+
+table {
+    border: 2px solid rgb(28, 143, 238);
+    box-shadow: 4px 4px 5px rgb(244, 244, 247);
+}
+
+th {
+    background-color: rgb(6, 86, 236);
+    color: black;
+}
+
+#toc {
+    width: 100%;
+    margin: auto;
+}
+
+.opt-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opt-btn a {
+    align-items: center;
+    background-color: rgb(122, 192, 248);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgb(32, 32, 151);
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+    text-decoration: none;
+    margin-left: 110px;
+    margin-right: 110px;
+    width: 118px;
+    text-align: center;
+    font-size: large;
+}
+
+.opt-btn a:hover {
+    color: rgb(122, 192, 248);
+    background-color: rgb(32, 32, 151);
+}
+
+select#client-by-page,
+select#search-crit {
+    width: 90px;
+    height: 25px;
+    font-size: large;
+    margin: 20px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    align-items: center;
+    border-radius: 5px;
+    border-style: none;
+    width: 50%;
+    align-self: center;
+    box-shadow: 4px 4px 5px rgb(244, 244, 247);
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+    color: black;
+}
+
+.search input {
+    height: 30px;
+    width: 150px;
+    font-size: large;
+}
+
+/*********Ajout Client*********/
+#new-client {
+    width: 50%;
+    margin: auto;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(122, 192, 248);
+    color: white;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    box-shadow: 4px 4px 5px rgb(244, 244, 247);
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+}
+
+#new-client>legend {
+    font-size: xx-large;
+}
+
+.formulaire {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 1300px;
+    height: auto;
+}
+
+.formulaire fieldset {
+    border: 0;
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.input {
+    margin: 10px;
+    height: 30px;
+    width: 130px;
+    font-size: large;
+}
+
+.create-cancel {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.create-cancel input {
+    height: 30px;
+    width: 100px;
+    font-size: large;
+
+}
+
+fieldset textarea {
+    width: 300px;
+    height: 50px;
+    resize: none;
+    font-size: x-large;
+    border-radius: 5px;
+}
+
+select#search-contact {
+    height: 80px;
+    font-size: large;
+}
+
+#fieldset-contacts {
+    border: 1px solid white;
+}
+
+#notes {
+    margin-right: 300px;
+    margin-top: 10px;
+}
+
+/***********Liste contacts************/
+.info-contact {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-select {
+    width: 150px;
+    height: 20px;
+}
+
+.client-select {
+    width: 150px;
+    height: 20px;
+}
+
+.list-contact {
+    background-color: rgb(122, 192, 248);
+    border-radius: 5px;
+    background: linear-gradient(.3turn, rgb(127, 189, 247), 50%, rgb(6, 86, 236));
+    box-shadow: 4px 4px 5px rgb(32, 32, 151);
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+}
+
+.list-contact legend {
+    font-size: larger;
+    text-align: left;
+}
+
+.info-contact a {
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(122, 192, 248);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgb(32, 32, 151);
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+.info-contact a:hover {
+    color: rgb(122, 192, 248);
+    background-color: rgb(32, 32, 151);
+}
+
+/**********************************STATE***********************************/
+#btn {
+    cursor: pointer;
+    background-color: rgb(122, 192, 248);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgb(32, 32, 151);
+    border-style: none;
+    padding: 0;
+    text-shadow: 1px 1px 3px rgb(16, 44, 128), 0 0 1em rgb(38, 9, 199), 0 0 0.2em rgb(16, 44, 128);
+    color: white;
+}
+
+#btn:hover {
+    color: rgb(122, 192, 248);
+    background-color: rgb(32, 32, 151);
+}
